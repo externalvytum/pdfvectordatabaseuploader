@@ -1,0 +1,19 @@
+[build]
+command = "npm run build"
+builder = "nixpacks"
+watchPatterns = [
+  "src/**",
+  "server/**",
+  "package.json"
+]
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+maxConcurrentReqs = 100
+
+[deploy.envs]
+NODE_ENV = "production"
+NODE_VERSION = "18.x"

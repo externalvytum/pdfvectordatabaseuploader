@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: pdf-vector-api
+    env: node
+    buildCommand: npm install
+    startCommand: node --experimental-specifier-resolution=node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_ENVIRONMENT
+        value: us-east-1
+      - key: PINECONE_INDEX_NAME
+        value: mitris
+      - key: OPENAI_API_KEY
+        sync: false
